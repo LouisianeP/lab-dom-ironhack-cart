@@ -63,6 +63,8 @@ Let's take a look at the provided HTML code. We have the **table tag with the id
 </table>
 ```
 
+
+
 ![](https://i.imgur.com/zCWQYg2.png)
 
 The one product we currently have in our `#cart` is placed in the `tr` with the class `product` (**that goes inside of `tbody`**):
