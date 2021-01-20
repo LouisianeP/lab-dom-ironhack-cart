@@ -63,10 +63,7 @@ function removeProduct(event) {
 
 
 // ITERATION 5
-// I kind of gave up a the end : 
-// I dont know why the fields are not clearing with the last line
-// I dont know how to make the new button remove visible to the Event Listener :) 
-// Curious about the results 
+
 
 function createProduct() {
 
@@ -74,13 +71,13 @@ const productName = document.querySelector('#cart > tfoot > tr > td:nth-child(1)
 console.log(productName)
 
 const productPrice = document.querySelector('#cart > tfoot > tr > td:nth-child(2) > input').value
-console.log(productPrice)
+//console.log(productPrice)
 
 const newItem = document.querySelector('.product').cloneNode(true);
-console.log(newItem)
+//console.log(newItem)
 
 const firstP = document.querySelector('.product').parentNode;
-console.log(firstP)
+// console.log(firstP)
 
 firstP.append(newItem);
 
@@ -92,22 +89,27 @@ nameTarget.innerHTML =`${productName}`
 const priceTarget = document.querySelector(`#cart > tbody > tr:nth-child(${numberProducts}) > td.price > span`)
 priceTarget.innerHTML =`${productPrice}`
 
-document.querySelectorAll('input').value='';
+const inputs = document.querySelectorAll('.create-product > td > input') ;
+inputs[0].value ='';
+inputs[1].value ='';
 
-
-
+const removeButtons = document.getElementsByClassName('btn-remove');
+for (button of removeButtons) {
+//  console.log(button)
+  button.addEventListener('click',removeProduct);
+    }
 }
 
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
-
+  
   const removeButtons = document.getElementsByClassName('btn-remove');
   for (button of removeButtons) {
   //  console.log(button)
     button.addEventListener('click',removeProduct);
-  }
-
+      }
+    
   const createProductBtn = document.getElementById('create');
   createProductBtn.addEventListener('click', createProduct);
 });
